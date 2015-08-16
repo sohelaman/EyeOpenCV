@@ -1,44 +1,5 @@
-﻿Build started 09-Aug-15 17:09:29.
-     1>Project "C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\EyeOpenCV\EyeOpenCV.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Ceemple\OpenCV4VS\include /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt findEyeCenter.cpp findEyeCorner.cpp helpers.cpp main.cpp tserial.cpp
-         tserial.cpp
-         main.cpp
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(15): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(26): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>main.cpp(63): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>main.cpp(114): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>main.cpp(115): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>main.cpp(116): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>main.cpp(118): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-     1>main.cpp(120): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
-         helpers.cpp
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(15): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(26): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-         findEyeCorner.cpp
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(15): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(26): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>findEyeCorner.cpp(114): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         findEyeCenter.cpp
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(15): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\users\sohel\documents\visual studio 2013\projects\eyeopencv\eyeopencv\constants.h(26): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>findEyeCenter.cpp(17): warning C4068: unknown pragma
-     1>findEyeCenter.cpp(45): warning C4068: unknown pragma
-     1>findEyeCenter.cpp(49): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>findEyeCenter.cpp(50): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>findEyeCenter.cpp(55): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>findEyeCenter.cpp(75): warning C4068: unknown pragma
-     1>findEyeCenter.cpp(193): warning C4068: unknown pragma
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\x64\Debug\EyeOpenCV.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Ceemple\OpenCV4VS\lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib StatTimer.lib clBLAS.lib clFFT.lib opencv_calib3d300d.lib opencv_core300d.lib opencv_cuda300d.lib opencv_cudaarithm300d.lib opencv_cudabgsegm300d.lib opencv_cudacodec300d.lib opencv_cudafeatures2d300d.lib opencv_cudafilters300d.lib opencv_cudaimgproc300d.lib opencv_cudalegacy300d.lib opencv_cudaoptflow300d.lib opencv_cudastereo300d.lib opencv_cudawarping300d.lib opencv_cudev300d.lib opencv_features2d300d.lib opencv_flann300d.lib opencv_highgui300d.lib opencv_imgcodecs300d.lib opencv_imgproc300d.lib opencv_ml300d.lib opencv_objdetect300d.lib opencv_photo300d.lib opencv_shape300d.lib opencv_stitching300d.lib opencv_superres300d.lib opencv_ts300d.lib opencv_video300d.lib opencv_videoio300d.lib opencv_videostab300d.lib opengl32.lib glu32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\x64\Debug\EyeOpenCV.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\x64\Debug\EyeOpenCV.lib" /MACHINE:X64 x64\Debug\findEyeCenter.obj
-         x64\Debug\findEyeCorner.obj
-         x64\Debug\helpers.obj
-         x64\Debug\main.obj
-         x64\Debug\tserial.obj
-         EyeOpenCV.vcxproj -> C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\x64\Debug\EyeOpenCV.exe
-     1>Done Building Project "C:\Users\sohel\Documents\Visual Studio 2013\Projects\EyeOpenCV\EyeOpenCV\EyeOpenCV.vcxproj" (Build target(s)).
+﻿Build started 16-Aug-15 21:17:03.
 
 Build succeeded.
 
-Time Elapsed 00:00:05.55
+Time Elapsed 00:00:00.01

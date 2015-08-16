@@ -26,14 +26,14 @@ void detectAndDisplay( cv::Mat frame );
 //-- Note, either copy these two files from opencv/data/haarscascades to your current folder, or change these locations
 cv::String face_cascade_name = "haarcascade_frontalface_alt.xml";
 cv::CascadeClassifier face_cascade;
-std::string main_window_name = "Capture - Face detection";
-std::string face_window_name = "Capture - Face";
+std::string main_window_name = "EyeOpenCV";
+std::string face_window_name = "Face";
 cv::RNG rng(12345);
 cv::Mat debugImage;
 cv::Mat skinCrCbHist = cv::Mat::zeros(cv::Size(256, 256), CV_8UC1);
 
 serial comm;
-bool res = comm.startDevice("COM3", 9600);
+bool res = comm.startDevice("COM4", 9600);
 
 /**
  * @function main
@@ -42,7 +42,7 @@ int main( int argc, const char** argv ) {
   //CvCapture* capture;
 	cv::VideoCapture capture(0);
   cv::Mat frame;
-
+  
   // Load the cascades
   if( !face_cascade.load( face_cascade_name ) ){ printf("--(!)Error loading face cascade, please change face_cascade_name in source code.\n"); return -1; };
 
@@ -69,6 +69,7 @@ int main( int argc, const char** argv ) {
   if (capture.isOpened()) {
     while( true ) {
 		//frame =  cvQueryFrame(capture);
+		//comm.send_data('f');
 		capture.read(frame);
 		
       // mirror it
@@ -149,7 +150,7 @@ void findEyes(cv::Mat frame_gray, cv::Rect face) {
   bool leftAtLeft = abs(leftLeftCornerRegion.x - leftPupil.x) <= threshold;
   bool leftAtRight = abs(leftRightCornerRegion.x - leftPupil.x - leftRightCornerRegion.width) <= threshold;
   bool rightAtLeft = abs(rightLeftCornerRegion.x - leftLeftCornerRegion.width - leftRightCornerRegion.width - rightPupil.x - 20) <= threshold;
-  bool rightAtRight = abs(rightRightCornerRegion.x - rightRightCornerRegion.width - leftLeftCornerRegion.width - leftRightCornerRegion.width - rightPupil.x -4) <= threshold;
+  bool rightAtRight = abs(-20 + rightRightCornerRegion.x - rightRightCornerRegion.width - leftLeftCornerRegion.width - leftRightCornerRegion.width - rightPupil.x) <= threshold;
   //cout << "SOME " << rightRightCornerRegion.x - rightRightCornerRegion.width - leftLeftCornerRegion.width - leftRightCornerRegion.width - rightPupil.x -4 << "\n";
     
   /*
@@ -166,13 +167,15 @@ void findEyes(cv::Mat frame_gray, cv::Rect face) {
 	  cout << "RIGHT@RIGHT \n";
   }
   */
-
+  
   if (leftAtLeft) {
 	  cout << "LOOKING AT LEFT! \n";
+	  comm.send_data('f');
 	  comm.send_data('l');
   }
   if (leftAtRight) {
 	  cout << "LOOKING AT RIGHT! \n";
+	  comm.send_data('f');
 	  comm.send_data('r');
   }
   
@@ -187,16 +190,18 @@ void findEyes(cv::Mat frame_gray, cv::Rect face) {
   leftPupil.y += leftEyeRegion.y;
 
   //handle up down
-  int threshold2 = 8;
+  int threshold2 = 10;
   bool lookUp = (eye_region_top + leftEyeRegion.x - leftPupil.y) >= threshold2;
   bool lookDown = (eye_region_top + leftEyeRegion.x - leftPupil.y) <= -threshold2;
   //cout << eye_region_top + leftEyeRegion.x - leftPupil.y << "\n";
   if (lookUp) {
 	  cout << "LOOKING UP! \n";
+	  comm.send_data('f');
 	  comm.send_data('u');
   }
   if (lookDown) {
 	  cout << "LOOKING DOWN! \n";
+	  comm.send_data('f');
 	  comm.send_data('d');
   }
 
